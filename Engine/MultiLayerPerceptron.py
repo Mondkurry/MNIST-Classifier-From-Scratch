@@ -3,7 +3,9 @@ from Engine.MLUtils import printPurple
 import random
 
 def train(model, xs, ys, epochs, iterPerEpoch, lr):
-    """def train(model, xs, ys, epochs, iterPerEpoch, lr):"""
+    """
+    def train(model, xs, ys, epochs, iterPerEpoch, lr):
+    """
     
     initialLoss = sum((yOut + (-yGroundTruth)) ** 2 for yGroundTruth, yOut in zip(ys, [model(x) for x in xs]))
     print("\n\033[1;33mTraining: \n------------------------\033[0m")
