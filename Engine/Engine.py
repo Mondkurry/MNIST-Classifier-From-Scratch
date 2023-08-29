@@ -112,10 +112,10 @@ class Value:
     
     # * Activation Functions
         
-     def relu(self):
+    def relu(self):
         out = Value(0 if self.value < 0 else self.value, (self,), 'ReLU')
 
-        def _backward():
+        def backward():
             self.grad += (out.value > 0) * out.grad
         out._backward = backward
 
