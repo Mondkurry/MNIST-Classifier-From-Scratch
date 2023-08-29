@@ -331,14 +331,14 @@ class Visualizer():
         
         for node in self.nodes:
             uid = str(id(node))
-            label = "{%s | data %.4f | grad %.4f}" % (node.label, node.data, node.grad)
-            drawing.node(name=uid, label=label, shape='record')
+            # label = "{%s | data %.4f | grad %.4f}" % (node.label, node.data, node.grad)
+            drawing.node(name=uid, shape='record')
             
-            if node._operation:
-                drawing.node(name=uid + node._operation, label=node._operation)
-                drawing.edge(uid + node._operation, uid)
+            if node._op:
+                drawing.node(name=uid + node._op, label=node._op)
+                drawing.edge(uid + node._op, uid)
                     
         for node1, node2 in self.edges:
-            drawing.edge(str(id(node1)), str(id(node2)) + node2._operation)
+            drawing.edge(str(id(node1)), str(id(node2)) + node2._op)
             
         return drawing
