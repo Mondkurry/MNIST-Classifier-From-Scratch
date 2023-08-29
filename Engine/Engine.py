@@ -198,6 +198,8 @@ class Neuron:
         #     return total.sigmoid()
         if self.activation == 'tanh':
             return total.tanh()
+        elif self.activation == 'relu':
+            return total.relu()
         else:
             return total
         
