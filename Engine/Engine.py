@@ -112,14 +112,14 @@ class Value:
     
     # * Activation Functions
         
-    # def relu(self) -> "Value":
-    #     out = Value(0 if self.value < 0 else self.value, (self,), "ReLU")
-        
-    #     def backward():
-    #         self.grad += (out.value > 0) * out.grad
-    #     out._backward = backward
-        
-    #     return out
+     def relu(self):
+        out = Value(0 if self.value < 0 else self.value, (self,), 'ReLU')
+
+        def _backward():
+            self.grad += (out.value > 0) * out.grad
+        out._backward = backward
+
+        return out
     
     def tanh(self) -> "Value":
         out = Value(np.tanh(self.value), (self,), "Tanh")
